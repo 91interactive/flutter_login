@@ -258,6 +258,7 @@ class __HeaderState extends State<_Header> {
               fadeDirection: FadeDirection.topToBottom,
               child: title,
             ),
+            const Text("HELLO")
           ],
         ),
       ),
