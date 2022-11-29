@@ -18,6 +18,7 @@ class _LoginCard extends StatefulWidget {
     this.loginAfterSignUp = true,
     this.hideProvidersTitle = false,
     this.introWidget,
+    this.insideHeader,
   });
 
   final AnimationController loadingController;
@@ -35,6 +36,7 @@ class _LoginCard extends StatefulWidget {
   final bool requireAdditionalSignUpFields;
   final bool requireSignUpConfirmation;
   final Widget? introWidget;
+  final Widget? insideHeader;
 
   @override
   _LoginCardState createState() => _LoginCardState();
@@ -647,6 +649,12 @@ class _LoginCardState extends State<_LoginCard> with TickerProviderStateMixin {
       child: Column(
         children: [
           Container(
+            color: Colors.red,
+            width: cardWidth,
+            child: widget.insideHeader,
+          ),
+          Container(
+            color: Colors.amber,
             padding: const EdgeInsets.only(
               left: cardPadding,
               right: cardPadding,

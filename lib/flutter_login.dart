@@ -103,7 +103,7 @@ class _AnimationTimeDilationDropdown extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: 250,
+            height: 125,
             child: CupertinoPicker(
               scrollController: FixedExtentScrollController(
                 initialItem: animationSpeeds.indexOf(initialValue.toInt()),
@@ -258,7 +258,6 @@ class __HeaderState extends State<_Header> {
               fadeDirection: FadeDirection.topToBottom,
               child: title,
             ),
-            const Text("HELLO")
           ],
         ),
       ),
@@ -827,6 +826,7 @@ class _FlutterLoginState extends State<FlutterLogin>
                         confirmSignupKeyboardType:
                             widget.confirmSignupKeyboardType,
                         introWidget: widget.headerWidget,
+                        insideHeader: _buildHeader(headerHeight, loginTheme),
                       ),
                     ),
                     Positioned(
