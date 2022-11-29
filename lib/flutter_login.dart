@@ -103,7 +103,7 @@ class _AnimationTimeDilationDropdown extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: 125,
+            height: 250,
             child: CupertinoPicker(
               scrollController: FixedExtentScrollController(
                 initialItem: animationSpeeds.indexOf(initialValue.toInt()),
