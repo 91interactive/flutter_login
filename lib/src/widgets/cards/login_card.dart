@@ -630,12 +630,12 @@ class _LoginCardState extends State<_LoginCard> with TickerProviderStateMixin {
       child: Column(
         children: [
           Container(
-            color: Colors.red,
+            // color: Colors.red,
             width: cardWidth,
             child: widget.insideHeader,
           ),
           Container(
-            color: Colors.amber,
+            // color: Colors.amber,
             padding: const EdgeInsets.only(
               left: cardPadding,
               right: cardPadding,
