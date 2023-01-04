@@ -467,7 +467,7 @@ class AuthCardState extends State<AuthCard> with TickerProviderStateMixin {
           alignment: Alignment.center,
           transform: Matrix4.identity()
             ..rotateZ(_cardRotationAnimation.value)
-            ..scale(_cardSizeAnimation.value * 2, _cardSizeAnimation.value * 2)
+            ..scale(_cardSizeAnimation.value, _cardSizeAnimation.value)
             ..scale(_cardSize2AnimationX.value * 2, _cardSize2AnimationY.value * 2),
           child: current,
         );
