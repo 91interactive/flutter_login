@@ -226,13 +226,13 @@ class AuthCardState extends State<AuthCard> with TickerProviderStateMixin {
     final widthRatio = deviceSize.width / cardSize.height + 2;
     final heightRatio = deviceSize.height / cardSize.width + .25;
 
-    _cardSize2AnimationX = Tween<double>(begin: 1.0, end: heightRatio / cardSizeScaleEnd).animate(
+    _cardSize2AnimationX = Tween<double>(begin: 1.0, end: (heightRatio / cardSizeScaleEnd) * 2).animate(
       CurvedAnimation(
         parent: _routeTransitionController,
         curve: const Interval(.72727272, 1, curve: Curves.easeInOutCubic),
       ),
     );
-    _cardSize2AnimationY = Tween<double>(begin: 1.0, end: widthRatio / cardSizeScaleEnd).animate(
+    _cardSize2AnimationY = Tween<double>(begin: 1.0, end: (widthRatio / cardSizeScaleEnd) * 2).animate(
       CurvedAnimation(
         parent: _routeTransitionController,
         curve: const Interval(.72727272, 1, curve: Curves.easeInOutCubic),
@@ -468,7 +468,7 @@ class AuthCardState extends State<AuthCard> with TickerProviderStateMixin {
           transform: Matrix4.identity()
             ..rotateZ(_cardRotationAnimation.value)
             ..scale(_cardSizeAnimation.value, _cardSizeAnimation.value)
-            ..scale(_cardSize2AnimationX.value * 2, _cardSize2AnimationY.value * 2),
+            ..scale(_cardSize2AnimationX.value, _cardSize2AnimationY.value),
           child: current,
         );
       },
