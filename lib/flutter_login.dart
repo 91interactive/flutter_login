@@ -460,7 +460,7 @@ class FlutterLogin extends StatefulWidget {
 class _FlutterLoginState extends State<FlutterLogin> with TickerProviderStateMixin {
   final GlobalKey<AuthCardState> authCardKey = GlobalKey();
 
-  static const loadingDuration = Duration(milliseconds: 6000);
+  static const loadingDuration = Duration(milliseconds: 400);
   double _selectTimeDilation = 1.0;
 
   late AnimationController _loadingController;
