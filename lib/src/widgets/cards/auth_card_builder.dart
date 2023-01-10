@@ -95,7 +95,7 @@ class AuthCardState extends State<AuthCard> with TickerProviderStateMixin {
   int _pageIndex = _loginPageIndex;
 
   var _isLoadingFirstTime = true;
-  static const cardSizeScaleEnd = 1.0;
+  static const cardSizeScaleEnd = .2;
 
   final TransformerPageController _pageController = TransformerPageController();
   late AnimationController _formLoadingController;
@@ -465,7 +465,10 @@ class AuthCardState extends State<AuthCard> with TickerProviderStateMixin {
       builder: (context, snapshot) {
         return Transform(
           alignment: Alignment.center,
-          transform: Matrix4.identity(),
+          transform: Matrix4.identity()
+            // ..rotateZ(_cardRotationAnimation.value)
+            ..scale(_cardSizeAnimation.value, _cardSizeAnimation.value)
+            ..scale(_cardSize2AnimationX.value, _cardSize2AnimationY.value),
           child: current,
         );
       },
