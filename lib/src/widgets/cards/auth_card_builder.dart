@@ -161,16 +161,16 @@ class AuthCardState extends State<AuthCard> with TickerProviderStateMixin {
       ),
     );
 
-    _cardOverlaySizeAndOpacityAnimation = Tween<double>(begin: 1.0, end: 0).animate(
+    _cardOverlaySizeAndOpacityAnimation = Tween<double>(begin: 1.0, end: .5).animate(
       CurvedAnimation(
         parent: _routeTransitionController,
         curve: const Interval(.5, .72727272),
       ),
     );
 
-    _cardSize2AnimationX = Tween<double>(begin: 1, end: 0).animate(_routeTransitionController);
+    _cardSize2AnimationX = Tween<double>(begin: 1, end: 0.5).animate(_routeTransitionController);
 
-    _cardSize2AnimationY = Tween<double>(begin: 1, end: 0).animate(_routeTransitionController);
+    _cardSize2AnimationY = Tween<double>(begin: 1, end: 0.5).animate(_routeTransitionController);
 
     _cardRotationAnimation = Tween<double>(begin: 0, end: pi / 2).animate(
       CurvedAnimation(
