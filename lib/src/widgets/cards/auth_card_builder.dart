@@ -141,7 +141,7 @@ class AuthCardState extends State<AuthCard> with TickerProviderStateMixin {
       duration: const Duration(milliseconds: 1100),
     );
 
-    _cardSizeAnimation = Tween<double>(begin: .5, end: cardSizeScaleEnd).animate(
+    _cardSizeAnimation = Tween<double>(begin: 1.0, end: cardSizeScaleEnd).animate(
       CurvedAnimation(
         parent: _routeTransitionController,
         curve: const Interval(
@@ -161,7 +161,7 @@ class AuthCardState extends State<AuthCard> with TickerProviderStateMixin {
       ),
     );
 
-    _cardOverlaySizeAndOpacityAnimation = Tween<double>(begin: .5, end: .5).animate(
+    _cardOverlaySizeAndOpacityAnimation = Tween<double>(begin: 1.0, end: .5).animate(
       CurvedAnimation(
         parent: _routeTransitionController,
         curve: const Interval(.5, .72727272),
@@ -227,14 +227,14 @@ class AuthCardState extends State<AuthCard> with TickerProviderStateMixin {
     final heightRatio = deviceSize.height / cardSize.width + .25;
 
     // _cardSize2AnimationX = Tween<double>(begin: 1.0, end: (heightRatio / cardSizeScaleEnd) * 3).animate(
-    _cardSize2AnimationX = Tween<double>(begin: .5, end: 0.5).animate(
+    _cardSize2AnimationX = Tween<double>(begin: 1.0, end: 0.5).animate(
       CurvedAnimation(
         parent: _routeTransitionController,
         curve: const Interval(.72727272, 1, curve: Curves.easeInOutCubic),
       ),
     );
     // _cardSize2AnimationY = Tween<double>(begin: 1.0, end: (widthRatio / cardSizeScaleEnd) * 3).animate(
-    _cardSize2AnimationY = Tween<double>(begin: .5, end: 0.5).animate(
+    _cardSize2AnimationY = Tween<double>(begin: 1.0, end: 0.5).animate(
       CurvedAnimation(
         parent: _routeTransitionController,
         curve: const Interval(.72727272, 1, curve: Curves.easeInOutCubic),
@@ -301,12 +301,16 @@ class AuthCardState extends State<AuthCard> with TickerProviderStateMixin {
       ),
     );
 
-    overlay = ScaleTransition(
-      scale: _cardOverlaySizeAndOpacityAnimation,
-      child: FadeTransition(
-        opacity: _cardOverlaySizeAndOpacityAnimation,
-        child: overlay,
-      ),
+    // overlay = ScaleTransition(
+    //   scale: _cardOverlaySizeAndOpacityAnimation,
+    //   child: FadeTransition(
+    //     opacity: _cardOverlaySizeAndOpacityAnimation,
+    //     child: overlay,
+    //   ),
+    // );
+    overlay = FadeTransition(
+      opacity: _cardOverlaySizeAndOpacityAnimation,
+      child: overlay,
     );
 
     return Stack(
