@@ -161,7 +161,7 @@ class AuthCardState extends State<AuthCard> with TickerProviderStateMixin {
       ),
     );
 
-    _cardOverlaySizeAndOpacityAnimation = Tween<double>(begin: 1.0, end: 1.0).animate(
+    _cardOverlaySizeAndOpacityAnimation = Tween<double>(begin: 1.0, end: 0).animate(
       CurvedAnimation(
         parent: _routeTransitionController,
         curve: const Interval(.5, .72727272),
@@ -465,17 +465,13 @@ class AuthCardState extends State<AuthCard> with TickerProviderStateMixin {
     return AnimatedBuilder(
       animation: _cardSize2AnimationX,
       builder: (context, snapshot) {
-        return AnimatedOpacity(
-          opacity: 0.0,
-          duration: Duration(seconds: 2),
-          child: Transform(
-            alignment: Alignment.center,
-            transform: Matrix4.identity()
-              // ..rotateZ(_cardRotationAnimation.value)
-              ..scale(_cardSizeAnimation.value, _cardSizeAnimation.value)
-              ..scale(_cardSize2AnimationX.value, _cardSize2AnimationY.value),
-            child: current,
-          ),
+        return Transform(
+          alignment: Alignment.center,
+          transform: Matrix4.identity()
+            // ..rotateZ(_cardRotationAnimation.value)
+            ..scale(_cardSizeAnimation.value, _cardSizeAnimation.value)
+            ..scale(_cardSize2AnimationX.value, _cardSize2AnimationY.value),
+          child: current,
         );
       },
     );
