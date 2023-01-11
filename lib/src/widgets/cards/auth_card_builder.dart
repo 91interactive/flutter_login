@@ -291,7 +291,7 @@ class AuthCardState extends State<AuthCard> with TickerProviderStateMixin {
           shape: theme.cardTheme.shape!,
           child: FractionallySizedBox(
             heightFactor: _cardOverlayHeightFactorAnimation.value,
-            alignment: Alignment.topCenter,
+            alignment: Alignment.bottomCenter,
             child: child,
           ),
         ),
@@ -308,10 +308,11 @@ class AuthCardState extends State<AuthCard> with TickerProviderStateMixin {
     //     child: overlay,
     //   ),
     // );
-    overlay = FadeTransition(
-      opacity: _cardOverlaySizeAndOpacityAnimation,
-      child: overlay,
-    );
+    // overlay = FadeTransition(
+
+    //   opacity: _cardOverlaySizeAndOpacityAnimation,
+    //   child: overlay,
+    // );
 
     return Stack(
       children: <Widget>[
