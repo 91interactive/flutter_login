@@ -308,15 +308,14 @@ class AuthCardState extends State<AuthCard> with TickerProviderStateMixin {
     //     child: overlay,
     //   ),
     // );
-    // overlay = FadeTransition(
-
-    //   opacity: _cardOverlaySizeAndOpacityAnimation,
-    //   child: overlay,
-    // );
+    overlay = FadeTransition(
+      opacity: _cardOverlaySizeAndOpacityAnimation,
+      child: overlay,
+    );
 
     return Stack(
       children: <Widget>[
-        card,
+        FadeTransition(opacity: _cardOverlaySizeAndOpacityAnimation, child: card),
         Positioned.fill(child: overlay),
       ],
     );
