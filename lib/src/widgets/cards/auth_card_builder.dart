@@ -95,7 +95,7 @@ class AuthCardState extends State<AuthCard> with TickerProviderStateMixin {
   int _pageIndex = _loginPageIndex;
 
   var _isLoadingFirstTime = true;
-  static const cardSizeScaleEnd = .2;
+  static const cardSizeScaleEnd = 1.0;
 
   final TransformerPageController _pageController = TransformerPageController();
   late AnimationController _formLoadingController;
@@ -161,7 +161,7 @@ class AuthCardState extends State<AuthCard> with TickerProviderStateMixin {
       ),
     );
 
-    _cardOverlaySizeAndOpacityAnimation = Tween<double>(begin: 1.0, end: 0).animate(
+    _cardOverlaySizeAndOpacityAnimation = Tween<double>(begin: 1.0, end: 1.0).animate(
       CurvedAnimation(
         parent: _routeTransitionController,
         curve: const Interval(.5, .72727272),
@@ -226,13 +226,15 @@ class AuthCardState extends State<AuthCard> with TickerProviderStateMixin {
     final widthRatio = deviceSize.width / cardSize.height + 2;
     final heightRatio = deviceSize.height / cardSize.width + .25;
 
-    _cardSize2AnimationX = Tween<double>(begin: 1.0, end: (heightRatio / cardSizeScaleEnd) * 3).animate(
+    // _cardSize2AnimationX = Tween<double>(begin: 1.0, end: (heightRatio / cardSizeScaleEnd) * 3).animate(
+    _cardSize2AnimationX = Tween<double>(begin: 1.0, end: 1.0).animate(
       CurvedAnimation(
         parent: _routeTransitionController,
         curve: const Interval(.72727272, 1, curve: Curves.easeInOutCubic),
       ),
     );
-    _cardSize2AnimationY = Tween<double>(begin: 1.0, end: (widthRatio / cardSizeScaleEnd) * 3).animate(
+    // _cardSize2AnimationY = Tween<double>(begin: 1.0, end: (widthRatio / cardSizeScaleEnd) * 3).animate(
+    _cardSize2AnimationY = Tween<double>(begin: 1.0, end: 1.0).animate(
       CurvedAnimation(
         parent: _routeTransitionController,
         curve: const Interval(.72727272, 1, curve: Curves.easeInOutCubic),
