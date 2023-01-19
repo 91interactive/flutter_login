@@ -303,6 +303,7 @@ class FlutterLogin extends StatefulWidget {
     this.headerWidget,
     this.onSwitchToAdditionalFields,
     this.insideHeaderWidget,
+    this.forgotCallback,
   })  : assert((logo is String?) || (logo is ImageProvider?)),
         logo = logo is String ? AssetImage(logo) : logo as ImageProvider?;
 
@@ -436,6 +437,10 @@ class FlutterLogin extends StatefulWidget {
 
   /// A widget that can be placed on top of the loginCard.
   final Widget? headerWidget;
+
+  /// Callback that gets executed, when clicking on the "Forgot Password" button
+  /// if "null" will provide the usual forgot password screen.
+  final void Function()? forgotCallback;
 
   final Widget? insideHeaderWidget;
 
@@ -793,6 +798,7 @@ class _FlutterLoginState extends State<FlutterLogin> with TickerProviderStateMix
                         confirmSignupKeyboardType: widget.confirmSignupKeyboardType,
                         introWidget: widget.headerWidget,
                         insideHeader: widget.insideHeaderWidget,
+                        forgotPasswordCallback: widget.forgotCallback,
                       ),
                     ),
                     Positioned(

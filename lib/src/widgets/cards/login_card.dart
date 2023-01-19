@@ -19,6 +19,7 @@ class _LoginCard extends StatefulWidget {
     this.hideProvidersTitle = false,
     this.introWidget,
     this.insideHeader,
+    this.forgotPasswordCallback,
   });
 
   final AnimationController loadingController;
@@ -37,6 +38,7 @@ class _LoginCard extends StatefulWidget {
   final bool requireSignUpConfirmation;
   final Widget? introWidget;
   final Widget? insideHeader;
+  final Function()? forgotPasswordCallback;
 
   @override
   _LoginCardState createState() => _LoginCardState();
@@ -392,6 +394,10 @@ class _LoginCardState extends State<_LoginCard> with TickerProviderStateMixin {
       child: TextButton(
         onPressed: buttonEnabled
             ? () {
+                if (widget.forgotPasswordCallback != null) {
+                  widget.forgotPasswordCallback!();
+                  return;
+                }
                 // save state to populate email field on recovery card
                 _formKey.currentState!.save();
                 widget.onSwitchRecoveryPassword();
