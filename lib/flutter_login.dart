@@ -160,7 +160,7 @@ class __HeaderState extends State<_Header> {
     final renderParagraph = RenderParagraph(
       TextSpan(
         text: widget.title,
-        style: theme.textTheme.headline3!.copyWith(
+        style: theme.textTheme.displaySmall!.copyWith(
           fontSize: widget.loginTheme.beforeHeroFontSize,
         ),
       ),
@@ -223,14 +223,14 @@ class __HeaderState extends State<_Header> {
         tag: widget.titleTag,
         largeFontSize: widget.loginTheme.beforeHeroFontSize,
         smallFontSize: widget.loginTheme.afterHeroFontSize,
-        style: theme.textTheme.headline3,
+        style: theme.textTheme.displaySmall,
         viewState: ViewState.enlarged,
       );
     } else if (!DartHelper.isNullOrEmpty(widget.title)) {
       title = Text(
         widget.title!,
         key: kTitleKey,
-        style: theme.textTheme.headline3,
+        style: theme.textTheme.displaySmall,
       );
     } else {
       title = null;
@@ -607,22 +607,22 @@ class _FlutterLoginState extends State<FlutterLogin> with TickerProviderStateMix
     final accentColor = loginTheme.accentColor ?? theme.colorScheme.secondary;
     final errorColor = loginTheme.errorColor ?? theme.errorColor;
     // the background is a dark gradient, force to use white text if detect default black text color
-    final isDefaultBlackText = theme.textTheme.headline3!.color == Typography.blackMountainView.headline3!.color;
-    final titleStyle = theme.textTheme.headline3!
+    final isDefaultBlackText = theme.textTheme.displaySmall!.color == Typography.blackMountainView.headline3!.color;
+    final titleStyle = theme.textTheme.displaySmall!
         .copyWith(
-          color: loginTheme.accentColor ?? (isDefaultBlackText ? Colors.white : theme.textTheme.headline3!.color),
+          color: loginTheme.accentColor ?? (isDefaultBlackText ? Colors.white : theme.textTheme.displaySmall!.color),
           fontSize: loginTheme.beforeHeroFontSize,
           fontWeight: FontWeight.w300,
         )
         .merge(loginTheme.titleStyle);
     final footerStyle = theme.textTheme.bodyText1!
         .copyWith(
-          color: loginTheme.accentColor ?? (isDefaultBlackText ? Colors.white : theme.textTheme.headline3!.color),
+          color: loginTheme.accentColor ?? (isDefaultBlackText ? Colors.white : theme.textTheme.displaySmall!.color),
         )
         .merge(loginTheme.footerTextStyle);
     final textStyle = theme.textTheme.bodyText2!.copyWith(color: blackOrWhite).merge(loginTheme.bodyStyle);
-    final textFieldStyle = theme.textTheme.subtitle1!.copyWith(color: blackOrWhite, fontSize: 14).merge(loginTheme.textFieldStyle);
-    final buttonStyle = theme.textTheme.button!.copyWith(color: Colors.white).merge(loginTheme.buttonStyle);
+    final textFieldStyle = theme.textTheme.titleMedium!.copyWith(color: blackOrWhite, fontSize: 14).merge(loginTheme.textFieldStyle);
+    final buttonStyle = theme.textTheme.labelLarge!.copyWith(color: Colors.white).merge(loginTheme.buttonStyle);
     final cardTheme = loginTheme.cardTheme;
     final inputTheme = loginTheme.inputTheme;
     final buttonTheme = loginTheme.buttonTheme;
@@ -728,7 +728,7 @@ class _FlutterLoginState extends State<FlutterLogin> with TickerProviderStateMix
         padding: EdgeInsets.only(bottom: loginTheme.footerBottomPadding),
         child: Text(
           widget.footer!,
-          style: theme.textTheme.subtitle2,
+          style: theme.textTheme.titleSmall,
           textAlign: TextAlign.center,
         ),
       );
